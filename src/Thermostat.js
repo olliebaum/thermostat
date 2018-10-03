@@ -30,7 +30,11 @@ Thermostat.prototype.down = function(number) {
 };
 
 Thermostat.prototype.setPSM = function(boolean) {
+  if (boolean === true && this.temperature > this.maxTemperaturePSMOn ) {
+    this.temperature = this.maxTemperaturePSMOn;
+  } else {
   this.powerSaving = boolean;
+}
 };
 
 Thermostat.prototype.reset = function() {
